@@ -1,0 +1,53 @@
+.cookie__section{
+  width: 100%;
+  height: auto;
+  position: relative;
+  position: fixed;
+  bottom: 20px;
+  right: 0;
+  z-index: 1000;
+}
+
+.cookie__container{
+  height: auto;
+}
+
+.overlay {
+  position: relative;
+  margin-left: auto;
+  padding: 0;
+  border-radius: 5px;
+  width: max-content;
+  height: auto;
+}
+
+.modal {
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  width: 400px;
+  font-size: 0.95rem;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  text-align: center;
+
+
+  p {
+    margin: 0 0 0.75rem 0;
+    color: #333;
+  }
+
+  button {
+    background: #000;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s ease-in-out;
+
+    &:hover {
+      background: #333;
+    }
+  }
+}
