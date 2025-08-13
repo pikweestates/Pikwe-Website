@@ -1,0 +1,222 @@
+// @import "tailwindcss";
+
+/*=============== VARIABLES SCSS ===============*/
+:root {
+  --green: #032b1e;
+  --lightgreen: #035139;
+  --lightergreen: rgb(199, 235, 209);
+  --text-color: #4f584f;
+  --grey: #d6d6d6;
+  --ivory: #fffff0;
+  --body-color: #ffffff;
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+
+  --biggest-font-size: 5.5rem;
+  --h2-font-size: 3.5rem;
+  --h3-font-size: 2.2rem;
+  --normal-font-size: 1.1rem;
+  --small-font-size: 0.8rem;
+  --smaller-font-size: 0.7rem;
+}
+
+/* Responsive typography */
+@media screen and (max-width: 1088px) {
+  :root {
+    --biggest-font-size: 4.4rem;
+    --h2-font-size: 2.8rem;
+    --h3-font-size: 1.75rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.75rem;
+    --smaller-font-size: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 628px) {
+  :root {
+    --biggest-font-size: 3.8rem;
+    --h2-font-size: 2.5rem;
+    --h3-font-size: 1.6rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.75rem;
+    --smaller-font-size: 0.6rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html {
+  scroll-behavior: auto;
+  height: auto;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--regular-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1470px;
+  margin: 0 auto;
+}
+
+// .main {
+//   overflow: hidden;
+// }
+
+.section {
+  padding: 7rem 0 3.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .section {
+    padding: 6.5rem 0 2.5rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .section {
+    padding: 4.5rem 0 1.5rem;
+  }
+}
+
+@media screen and (max-width: 1470px) {
+  .container {
+    max-width: 100%;
+    margin: 0 2.5rem;
+  }
+}
+
+@media screen and (max-width: 1088px) {
+  .container {
+    max-width: 100%;
+    margin: 0 1.5rem;
+  }
+}
+
+@media screen and (max-width: 628px) {
+  .container {
+    max-width: 100%;
+    margin: 0 1.2rem;
+  }
+}
+
+//Lenis Scroll
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+.country-list {
+  scrollbar-width: auto !important;
+
+  &::-webkit-scrollbar {
+    display: block !important;
+    width: 8px;
+  }
+}
+
+.react-tel-input {
+  width: 100%;
+  height: 70px;
+  outline: none;
+  background-color: transparent;
+  border: none !important;
+  border-radius: none !important;
+}
+
+.form-control {
+  height: 70px !important;
+  outline: none !important;
+  background-color: transparent !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  font-size: var(--normal-font-size) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+  &::placeholder {
+    font-size: var(--normal-font-size) !important;
+  }
+
+  &:focus {
+    border-bottom: 1px solid var(--lightgreen) !important;
+  }
+
+  &:focus ~ .flag-dropdown {
+    border-bottom: 1px solid var(--lightgreen) !important;
+  }
+
+  &:invalid[focused="true"] {
+    border-bottom: 1px solid red !important;
+  }
+
+  &:invalid[focused="true"] ~ .flag-dropdown {
+    border-bottom: 1px solid red !important;
+  }
+
+  &:invalid[focused="true"] ~ .conferror {
+    display: block !important;
+  }
+}
+
+.flag-dropdown {
+  height: 70px !important;
+  outline: none !important;
+  background-color: transparent !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3) !important;
+}

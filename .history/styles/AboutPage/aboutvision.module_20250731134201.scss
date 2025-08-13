@@ -1,0 +1,27 @@
+.av__section{
+  width: 100%;
+  position: relative;
+}
+
+.av__container{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.avc__left{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+  width: 45%;
+}
+
+.avc__top{
+  
+}
+
+.avc__right{
+  position: relative;
+  width: 50%;
+}

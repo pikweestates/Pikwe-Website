@@ -1,0 +1,52 @@
+"use client";
+
+import React from "react";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
+import { Icon } from "@iconify/react";
+import styles from "../../styles/Portfolio/filtercontainer.module.scss";
+
+const FilterContainer = () => {
+  const filterData = {
+    filterName: {
+      
+    }"Price",
+    filters: ["Price", "< 1M", "1M - 5M", "5M - 10M", "> 10M"],
+  };
+
+  const searchParams = useSearchParams();
+  const pathName = usePathname();
+  const { replace } = useRouter();
+
+  const handleFilter = (filter: string) => {
+    const params = new URLSearchParams(searchParams);
+
+    if (filter == "Price") {
+      params.delete("price");
+    } else {
+      // This value will have to chnage if the "All" is different
+      params.set("price", filter);
+    }
+
+    replace(`${pathName}?${params.toString()}`, { scroll: false });
+  };
+
+  return (
+    <div className={styles.filter__container}>
+      <div className={styles.fc__top}>
+        <span className={styles.fc__span}>{filterData.filterName}</span>
+        <div className={styles.fc__icon}>
+          <Icon icon="fa:angle-down" />
+        </div>
+      </div>
+      <div className={styles.fc__bottom}>
+        {filterData.filters.map((data, i) => (
+          <div className={styles.fcb__select} key={i}>
+            <span className={styles.select}>{data}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default FilterContainer;

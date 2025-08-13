@@ -1,0 +1,33 @@
+.bh__section{
+  padding: calc(100px + 7rem) 0 3rem;
+  width: 100%;
+}
+
+.bh__container{
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+  align-items: flex-start;
+}
+
+.bh__top{
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.bh__h2{
+  width: 90%;
+  font-size: var(--biggest-font-size);
+  color: var(--green);
+  line-height: 1;
+  font-weight: 400;
+  font-family: var(--medium-font);
+}
+
+.bh__categories{
+  display: flex;
+  gap: 1rem;
+}
+

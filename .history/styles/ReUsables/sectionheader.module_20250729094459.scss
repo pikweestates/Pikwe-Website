@@ -1,0 +1,28 @@
+.sh__wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.sh__left{
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sh__small{
+  font-size: var(--small-font-size);
+  text-transform: uppercase;
+  font-family: var(--medium-font);
+}
+
+.sh__h2{
+  font-weight: 300;
+  font-family: var(--medium-font);
+}
+
+.sh__right{
+  width: 40%;
+}

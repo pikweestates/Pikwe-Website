@@ -1,0 +1,25 @@
+.navlink__container1 {
+  width: auto;
+  height: 20px;
+  overflow-y: hidden;
+  position: relative;
+  display: block;
+
+  
+
+  .link__wrapper {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transform: translateY(0);
+    align-items: flex-start;
+    transition: all 0.6s ease-in;
+  }
+}
+
+.link__text {
+  color: var(--green);
+  font-family: var(--medium-font);
+  font-size: calc(var(--normal-font-size) + 0.05rem);
+}

@@ -1,0 +1,30 @@
+{
+  "name": "pikwe",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "i18nexus pull && next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "i18next": "^25.3.2",
+    "i18next-resources-to-backend": "^1.2.1",
+    "next": "15.4.4",
+    "next-i18n-router": "^5.5.3",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-i18next": "^15.6.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.4",
+    "sass": "^1.89.2",
+    "typescript": "^5"
+  }
+}

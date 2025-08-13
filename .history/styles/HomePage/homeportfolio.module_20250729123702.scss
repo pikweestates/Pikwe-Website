@@ -1,0 +1,45 @@
+.hp__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.5rem
+}
+
+.portfolio__wrapper{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.portfolio__container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+}
+
+.pc__top{
+  width: 100%;
+  aspect-ratio: 590/450;
+  position: relative;
+  overflow: hidden;
+}
+
+.pc__image{
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  img{
+    object-fit: cover;
+  }
+}
+
+.reference{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  
+}

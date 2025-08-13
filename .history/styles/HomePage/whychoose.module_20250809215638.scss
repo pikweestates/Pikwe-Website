@@ -1,0 +1,99 @@
+.wc__section{
+  width: 100%;
+  height: auto;
+  background-color: var(--ivory);
+  padding: 7rem 0 6rem !important;
+}
+
+.wc__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.5rem
+}
+
+.why__content{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+}
+
+.wcc__content{
+  width: 100%;
+  height: 280px;
+  padding: 2rem 3rem 2rem 0;
+  border: 1px solid var(--grey);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  &:nth-of-type(3), &:nth-of-type(4){
+    margin-top: -1px;
+  }
+
+  &:nth-of-type(2), &:nth-of-type(4){
+    border-left: none !important;
+    border-right: none !important;
+    padding: 2rem 3rem 2rem 1rem;
+  }
+
+  &:nth-of-type(1), &:nth-of-type(3){
+    border-left: none !important;
+  }
+}
+
+.wc__left{
+  span{
+    font-size: var(--h3-font-size);
+    font-family: var(--medium-font);
+  }
+}
+
+.wc__right{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.wcr__h2{
+  font-size: var(--h3-font-size);
+  width: 75%;
+  line-height: 1.15;
+  color: var(--green);
+  font-family: var(--medium-font);
+  font-weight: 400;
+}
+
+.wrc__p{
+  width: 95%;
+}
+
+//Responsive Design
+@media screen and (max-width: 1024px) {
+  .wc__section {
+    padding: 6.5rem 0 5.5rem !important;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .wc__section {
+    padding: 5rem 0 4.5rem !important;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .wc__right{
+    width: 80%;
+    gap: 2rem;
+  }
+
+  .wrc__p{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: ) {
+  
+}

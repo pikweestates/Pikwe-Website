@@ -1,0 +1,21 @@
+.ls__container{
+  width: max-content;
+  height: auto;
+  position: relative;
+}
+
+.ls__wrapper{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.selected{
+  color: var(--green);
+}
+
+.icon{
+  svg{
+    color: var(--green)
+  }
+}

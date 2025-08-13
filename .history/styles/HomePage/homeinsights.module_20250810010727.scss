@@ -1,0 +1,23 @@
+.hi__section{
+  padding: 7rem 0 6rem !important;
+}
+
+.hi__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.5rem
+}
+
+.hi__wrapper{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media screen and (max-width: 560px) {
+  .hi__container{
+    gap: 3.5rem
+  }
+}

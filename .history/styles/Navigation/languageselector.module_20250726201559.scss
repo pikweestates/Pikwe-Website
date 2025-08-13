@@ -1,0 +1,67 @@
+.ls__container {
+  width: max-content;
+  height: auto;
+  position: relative;
+}
+
+.ls__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.selected {
+  color: var(--green);
+  font-family: var(--medium-font);
+}
+
+.icon {
+  svg {
+    color: var(--green);
+    font-size: calc(var(--normal-font-size) - 0.1rem);
+  }
+
+  position: relative;
+  margin-bottom: -2px;
+}
+
+.selector{
+  position: absolute;
+  top: 3.5rem;
+  left: 50%;
+  width: 3.5rem;
+  height: auto;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 1px solid var(--grey);
+  border-right: 1px solid var(--grey);
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);;
+  transition: all 0.5s ease;
+
+  &.active__selector{
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  }
+}
+
+.s__item{
+  width: 100%;
+  aspect-ratio: 16/11;
+  display: grid;
+  place-items: center;
+  background-color: white;
+  border-bottom: 1px solid var(--grey);
+  cursor: pointer;
+  color: var(--green);
+  font-family: var(--medium-font);
+
+  &.active__select{
+    cursor: default;
+    span{
+      opacity: 0.5;
+    }
+  }
+}
+

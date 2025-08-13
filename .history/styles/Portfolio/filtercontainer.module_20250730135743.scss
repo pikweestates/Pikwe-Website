@@ -1,0 +1,50 @@
+.filter__container{
+  position: relative;
+  width: fit-content;
+  height: auto;
+  cursor: pointer;
+}
+
+.fc__top{
+  padding: 1rem 0.8rem;
+  border: 1px solid var(--grey);
+  background-color: white;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.fc__span{
+  font-size: calc(var(--normal-font-size) + 0.1rem);
+}
+
+.fc__icon{
+  svg {
+    color: var(--text-color);
+    font-size: calc(var(--normal-font-size) - 0.1rem);
+  }
+  transform: none;
+  position: relative;
+  margin-bottom: -4px;
+  transition: all 0.4s ease;
+
+  &.active__icon {
+    transform: rotate(-180deg);
+    margin-bottom: 0px;
+  }
+}
+
+.fc__bottom{
+  width: 120px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: flex-start;
+}
+
+.fcb__select{
+  width: 100%;
+  padding: 1rem 0.5rem;
+}

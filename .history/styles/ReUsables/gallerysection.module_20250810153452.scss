@@ -1,0 +1,262 @@
+.gs__section {
+  width: 100%;
+  height: auto;
+  padding: 7rem 0 6rem !important;
+}
+
+.gs__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.5rem;
+}
+
+.gs__content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.gallery__box {
+  width: 100%;
+  height: auto;
+}
+
+.gbm__top{
+  width: 100%;
+  aspect-ratio: 900/600;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: default;
+
+  &:hover{
+    .gb__overlay{
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      opacity: 1;
+    }
+  }
+
+  .gb__overlay {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+}
+
+.gb__main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.gb__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  padding: 1.5rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #f5f5f5;
+}
+
+.gb__top {
+  width: 100%;
+
+  p {
+    color: var(--green);
+    font-size: calc(var(--normal-font-size) + 0.5rem);
+    line-height: 1.2;
+  }
+}
+
+.gb__bottom {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.thumbnail {
+  width: 25%;
+  aspect-ratio: 200/140;
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.gb__button {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 2px;
+  background-color: var(--lightergreen);
+  cursor: pointer;
+
+  svg {
+    font-size: calc(var(--normal-font-size) + 0.25rem);
+    color: var(--green);
+    transform: rotate(90deg);
+  }
+}
+
+.image__modal{
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(2px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+}
+
+.main__image{
+  width: 60vw;
+  max-width: 1000px;
+  aspect-ratio: 16/10;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  overflow: hidden;
+
+  img{
+    object-fit: cover;
+  }
+}
+
+.cancel{
+  cursor: pointer;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 2;
+  background: var(--lightergreen);
+  width: 32px;
+  height: 32px;
+  border-radius: 2px;
+  display: grid;
+  place-items: center;
+
+  svg{
+    color: var(--green);
+    font-size: calc(var(--normal-font-size) + 0.25rem);
+  }
+}
+
+.gbm__bottom{
+  display: none;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem 1rem;
+  border: 1px solid var(--grey);
+  border-top: none !important;
+}
+
+//Responsive Design
+@media screen and (max-width: 1024px) {
+  .gs__section {
+    padding: 6.5rem 0 5.5rem !important;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .gs__section {
+    padding: 5rem 0 4.5rem !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .gs__content {
+    gap: 12px;
+  }
+
+  .gb__button {
+    width: 40px;
+    height: 40px;
+  
+    svg {
+      font-size: calc(var(--normal-font-size) + 0.15rem);
+      color: var(--green);
+      transform: rotate(90deg);
+    }
+  }
+
+  .gb__top {
+    p {
+      font-size: calc(var(--normal-font-size) + 0.25rem);
+    }
+  }
+
+  .gb__overlay {
+    padding: 1.2rem 1rem 1rem;
+  }
+
+  .main__image{
+    width: 80vw;
+    aspect-ratio: 16/10;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .gb__overlay{
+    display: none;
+  }
+
+  .gbm__bottom{
+    display: flex;
+    border-radius: 0px 0px 3px 3px;
+  }
+
+  .gbm__top{
+    border-radius: 3px 3px 0 0;
+  }
+
+  .gb__top {
+    p {
+      font-size: calc(var(--normal-font-size) + 0.15rem);
+    }
+  }
+}
+
+
+@media screen and (max-width: 770px) {
+  .gb__top {
+    p {
+      font-size: calc(var(--normal-font-size));
+    }
+  }
+
+  .gb__button {
+    width: 34px;
+    height: 34px;
+  
+    svg {
+      font-size: calc(var(--normal-font-size) + 0.1rem);
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  
+}

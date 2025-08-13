@@ -1,0 +1,23 @@
+.link__wrapper{
+  position: relative;
+
+  .linker{
+    display: flex;
+    align-items: center;
+
+    .link__icon{
+      width: 48px;
+      height: 48px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      background-color: var(--lightergreen);
+
+      svg{
+        font-size: calc(var(--normal-font-size));
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,12 @@
+.button__container{
+  width: fit-content;
+  padding: 2rem 5rem;
+  background-color: var(--lightergreen);
+  color: var(--green);
+
+  span{
+    color: var(--green);
+      font-family: var(--medium-font);
+      font-size: calc(var(--normal-font-size) + 0.05rem);
+  }
+}

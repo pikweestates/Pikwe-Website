@@ -1,0 +1,139 @@
+.team__section{
+  padding: 7rem 0 6rem !important;
+  width: 100%;
+}
+
+.team__container{
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.tc__top{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem
+}
+
+.tc__span{
+  font-size: var(--small-font-size);
+  text-transform: uppercase;
+  font-family: var(--medium-font);
+}
+
+.tc__h2{
+  font-weight: 300;
+  font-family: var(--medium-font);
+  font-size: var(--h2-font-size);
+  color: var(--green);
+  line-height: 1;
+}
+
+.tc__bottom{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tc__card{
+  width: 100%;
+  height: 740px;
+  position: relative;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border: 1px solid var(--grey);
+  user-select: none;
+}
+
+.card__image{
+  width: 100%;
+  aspect-ratio: 16/14;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+
+  img{
+    object-fit: cover;
+  }
+}
+
+.card__bottom{
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.name{
+  font-size: calc(var(--normal-font-size) + 0.7rem);
+  color: var(--green);
+  font-weight: 300;
+  font-family: var(--medium-font);
+}
+
+.position{
+  text-transform: uppercase;
+  font-size: var(--small-font-size);
+  font-family: var(--medium-font);
+}
+
+//Responsive Design
+@media screen and (max-width: 1024px) {
+  .team__section {
+    padding: 6.5rem 0 5.5rem !important;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .team__section {
+    padding: 5rem 0 4.5rem !important;
+  }
+}
+
+@media screen and (max-width: 1088px) {
+  .tc__card{
+    height: 700px;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  .tc__bottom{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tc__card{
+    height: 730px;
+    padding: 1rem;
+    gap: 1.5rem;
+    border-top: none !important;
+
+    &:nth-of-type(even){
+      border-left: none !important;
+    }
+
+    &:nth-of-type(1), &:nth-of-type(2){
+      border-top: 1px solid var(--grey) !important;
+    }
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .tc__card{
+    height: 700px;
+    padding: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .tc__bottom{
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .tc__card{
+    height: 700px;
+    padding: 0.75rem;
+  }
+}

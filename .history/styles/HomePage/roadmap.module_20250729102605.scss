@@ -1,0 +1,25 @@
+.roadmap__section{
+  background-color: var(--ivory);
+}
+
+.roadmap__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem
+}
+
+.roadmap__content{
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.rmc__container{
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  gap:
+}

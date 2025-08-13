@@ -1,0 +1,176 @@
+// @import "tailwindcss";
+
+/*=============== VARIABLES SCSS ===============*/
+:root {
+  --green: #032B1E;
+  --lightgreen: #035139;
+  --lightergreen: #C7EBD1;
+  --text-color: #4F584F;
+  --grey: #D6D6D6;
+  --ivory: #FFFFF0;
+  --body-color: #ffffff;
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+
+  --biggest-font-size: 5.25rem;
+  --h2-font-size: 3.5rem;
+  --h3-font-size: 2rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.8rem;
+  --smallest-font-size: 0.65rem;
+}
+
+/* Responsive typography */
+@media screen and (max-width: 1088px) {
+  :root {
+    --biggest-font-size: 4.2rem;
+    --h2-font-size: 2.8rem;
+    --h3-font-size: 1.6rem;
+    --normal-font-size: 0.95rem;
+    --small-font-size: 0.75rem;
+    --smallest-font-size: 0.60rem;
+  }
+}
+
+@media screen and (max-width: 628px) {
+  :root {
+    --biggest-font-size: 3.7rem;
+    --h2-font-size: 2.5rem;
+    --h3-font-size: 1.4rem;
+    --normal-font-size: 0.95rem;
+    --small-font-size: 0.75rem;
+    --smallest-font-size: 0.60rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html {
+  scroll-behavior: auto;
+  height: auto;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--regular-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+
+// .main {
+//   overflow: hidden;
+// }
+
+.section {
+  padding: 3rem 0 5rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .section {
+    padding: 2rem 0 5rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .section {
+    padding: 1rem 0 4rem;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .container {
+    max-width: 100%;
+    margin: 0 2.5rem;
+  }
+}
+
+
+
+@media screen and (max-width: 1088px) {
+  .container {
+    max-width: 100%;
+    margin: 0 1.5rem;
+  }
+}
+
+@media screen and (max-width: 628px) {
+  .containerr {
+    max-width: 100%;
+    margin: 0 1.2rem;
+  }
+
+  .containerr2 {
+    max-width: 100%;
+    margin: 0 1.2rem;
+  }
+
+  .containerr3 {
+    max-width: 100%;
+    margin: 0 1.2rem;
+  }
+}
+
+//Lenis Scroll
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

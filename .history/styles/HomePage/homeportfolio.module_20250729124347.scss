@@ -1,0 +1,69 @@
+.hp__container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.5rem
+}
+
+.portfolio__wrapper{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.portfolio__container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+}
+
+.pc__top{
+  width: 100%;
+  aspect-ratio: 590/450;
+  position: relative;
+  overflow: hidden;
+}
+
+.pc__image{
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  img{
+    object-fit: cover;
+  }
+}
+
+.reference{
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: white;
+  padding: 0.2rem 0.3rem;
+  font-size: var(--small-font-size);
+  color: var(--green);
+  text-transform: uppercase;
+  font-family: var(--medium-font);
+  border-radius: 3px;
+}
+
+.pc__bottom{
+  width: 100%;
+  padding: 1.1rem 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--grey);
+  border-left: 1px solid var(--grey);
+  border-right: 1px solid var(--grey);
+}
+
+.land__name{
+  font-size: calc(var(--normal-font-size) + 0.4rem);
+  color: var(--green);
+}
+

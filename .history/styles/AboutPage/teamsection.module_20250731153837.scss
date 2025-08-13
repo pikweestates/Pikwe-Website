@@ -1,0 +1,51 @@
+.team__section{
+  padding: 7rem 0 6rem;
+  width: 100%;
+}
+
+.team__container{
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+.tc__top{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem
+}
+
+.tc__span{
+  font-size: var(--small-font-size);
+  text-transform: uppercase;
+  font-family: var(--medium-font);
+}
+
+.tc__h2{
+  font-weight: 300;
+  font-family: var(--medium-font);
+  font-size: var(--h2-font-size);
+  color: var(--green);
+  line-height: 1;
+}
+
+.tc__bottom{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tc__card{
+  width: 100%;
+  height: 700px;
+  position: relative;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card__image{
+  width: 100%;
+  aspect-ratio: 16/13;
+}

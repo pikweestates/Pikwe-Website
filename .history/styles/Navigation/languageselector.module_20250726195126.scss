@@ -1,0 +1,45 @@
+.ls__container {
+  width: max-content;
+  height: auto;
+  position: relative;
+}
+
+.ls__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.selected {
+  color: var(--green);
+  font-family: var(--medium-font);
+}
+
+.icon {
+  svg {
+    color: var(--green);
+    font-size: calc(var(--normal-font-size) - 0.1rem);
+  }
+
+  position: relative;
+  margin-bottom: -2px;
+}
+
+.selector{
+  position: absolute;
+  top: 3.25rem;
+  left: 0;
+  width: 3rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.s__item{
+  width: 100%;
+  height: ;
+}
+
+.

@@ -1,0 +1,34 @@
+.navlink__container1 {
+  height: 20px;
+  overflow-y: hidden;
+  overflow-x: visible;
+  position: relative;
+  display: inline-block;
+
+  &:hover {
+    .link__wrapper {
+      transform: translateY(-20px);
+
+      .link__text{
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .link__wrapper {
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transform: translateY(0);
+    align-items: flex-start;
+    transition: all 0.4s ease;
+
+    .link__text {
+      color: var(--green);
+      font-family: var(--medium-font);
+      font-size: calc(var(--normal-font-size) + 0.05rem);
+      transition: all 0.4s ease;
+    }
+  }
+}

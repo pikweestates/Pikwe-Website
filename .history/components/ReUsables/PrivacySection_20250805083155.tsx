@@ -1,0 +1,21 @@
+import React from "react";
+import styles from "../../styles/ReUsables/privacysection.module.scss";
+
+const PrivacySection = ({
+  ref,
+}: {
+  ref: React.RefObject<HTMLDivElement | null>;
+}) => {
+  return <div className={`section ${styles.privacy__section}`} ref={ref}>
+    <div className={styles.privacy__container}>
+      <div className={styles.privacy}>
+        <h3>Notice of Agreement</h3>
+        <div>
+          
+        </div>
+      </div>
+    </div>
+  </div>;
+};
+
+export default PrivacySection;

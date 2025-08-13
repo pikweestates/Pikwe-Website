@@ -1,0 +1,60 @@
+.vision__section{
+  width: 100%;
+  height: max-content;
+  overflow: hidden;
+  position: relative;
+  max-width: 1550px;
+}
+
+.vision__image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; // Takes the full height of its parent (vision__section)
+  z-index: 1;
+}
+
+.vi__wrapper{
+  width: 100%;
+  height: 130%;
+  position: relative;
+
+  img{
+    object-fit: cover;
+  }
+}
+
+.vision__content{
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 7rem 0;
+}
+
+.vc__span{
+  font-size: var(--small-font-size);
+  text-transform: uppercase;
+  color: var(--ivory);
+  font-family: var(--medium-font);
+}
+
+.vc__p{
+  width: 100%;
+  line-height: 1.2;
+  font-size: calc(var(--h2-font-size) - 0.75rem);
+  color: var(--ivory);
+  text-align: center;
+  font-family: var(--medium-font);
+}
+
+.vc__button{
+  margin-top: 2.5rem;
+}
+
+
+

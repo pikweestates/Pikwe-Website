@@ -1,0 +1,28 @@
+.ph__section{
+  padding: calc(100px + 7rem) 0 3rem;
+  width: 100%;
+}
+
+.ph__container{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.ph__header{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.reference{
+  text-transform: uppercase;
+  color: var(--green);
+  background-color: var(--lightergreen);
+  padding: 0.7rem 0.5rem;
+  border-radius: 5px;
+  font-family: var(--medium-font);
+}
+

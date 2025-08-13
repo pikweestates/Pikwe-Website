@@ -1,0 +1,25 @@
+.side__section{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  background-color: var(--green);
+  color: var(--lightergreen);
+}
+
+.side__container{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.side__nav{
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.

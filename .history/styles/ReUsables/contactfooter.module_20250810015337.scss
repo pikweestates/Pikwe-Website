@@ -1,0 +1,68 @@
+.cf__section{
+  width: 100%;
+  height: max-content;
+  position: relative;
+  background-color: var(--lightergreen);
+}
+
+.cf__container{
+  display: grid;
+  place-items: center;
+}
+
+.cf__content{
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  margin: 5rem 0 7rem;
+}
+
+.cf__h2{
+  font-weight: 400;
+  font-size: calc(var(--h2-font-size) + 2rem);
+  font-family: var(--medium-font);
+  color: var(--green);
+  text-align: center;
+  line-height: 1.15;
+}
+
+.cf__background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/svg/patterngreen.svg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 0;
+}
+
+
+//Responsive Design
+@media screen and (max-width: 800px) {
+  .cf__h2{
+    font-weight: 400;
+    font-size: calc(var(--h2-font-size) + 1.5rem);
+    line-height: 1.15;
+  }
+
+  .cf__content{
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .cf__h2{
+    font-size: calc(var(--h2-font-size) + 0.75rem);
+  }
+
+  .cf__content{
+    margin: 5rem 0 6rem;
+  }
+}

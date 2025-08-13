@@ -1,0 +1,18 @@
+.porfolio__gallery{
+  padding: 7rem 0 6rem;
+}
+
+.pg__container{
+  position: relative;
+}
+
+.pg__wrapper{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.pg__image{
+  
+}

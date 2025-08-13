@@ -1,0 +1,15 @@
+export const imageModalAnim = {
+  initial: { clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)" , opacity: 0},
+
+  enter: {
+    clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    opacity: 1,
+    transition: { duration: 0.7, ease: [0.7, 0, 0.3, 1] },
+  },
+
+  closed: {
+    clipPath: "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+    opacity: 0,
+    transition: { duration: 0.7, ease: [0.7, 0, 0.3, 1] },
+  },
+};

@@ -1,0 +1,18 @@
+{
+  "heroheader": "Trouvez votre prochain terrain",
+  "herotext": "Découvrez notre sélection de propriétés vérifiées. Vous pouvez affiner les options par prix, taille et statut pour trouver ce qui vous convient.",
+  "filters": "Filtres",
+  "price": "Prix",
+  "size": "Surface",
+  "status": "Statut",
+  "sprice": "prix",
+  "ssize": "surface",
+  "sstatus": "statut",
+  "clearfilter": "Effacer les filtres",
+  "titled": "Titré",
+  "nontitled": "Non-titré",
+  "inprocess": "In Process",
+  "stitled": "titled",
+  "snontitled": "non-titled",
+  "sinprocess": "in-process"
+}

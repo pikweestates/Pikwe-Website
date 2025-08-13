@@ -1,0 +1,49 @@
+.portfolio__gallery{
+  padding: 7rem 0 6rem !important;
+}
+
+.pg__container{
+  position: relative;
+}
+
+.pg__wrapper{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.pg__image{
+  width: 100%;
+  aspect-ratio: 900/600;
+  position: relative;
+  border-radius: 5px;
+  overflow: hidden;
+
+  img{
+    object-fit: cover;
+  }
+}
+
+//Responsive Design
+@media screen and (max-width: 1024px) {
+  .portfolio__gallery {
+    padding: 6.5rem 0 5.5rem !important;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .portfolio__gallery {
+    padding: 5rem 0 4.5rem !important;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .pg__wrapper{
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  
+}

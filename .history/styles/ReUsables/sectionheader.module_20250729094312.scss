@@ -1,0 +1,21 @@
+.sh__wrapper{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.sh__left{
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sh__small{
+  
+}
+
+.sh__right{
+  width: 40%;
+}

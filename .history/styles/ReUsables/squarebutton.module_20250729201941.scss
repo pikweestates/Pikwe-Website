@@ -1,0 +1,51 @@
+.button__container, .button__container2, .button__container3 {
+  width: max-content;
+  height: 60px;
+  padding: 0 1.5rem;
+  background-color: var(--lightergreen);
+  color: var(--green);
+  display: grid;
+  place-items: center;
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+
+  &:hover{
+    &::before{
+      transform: translateX(0%);
+    }
+
+    span{
+      color: var(--lightergreen);
+    }
+  }
+
+  &::before{
+    content: "";
+    display: block;
+    position: absolute;
+    left: -1px;
+    right: -1px;
+    top: 0;
+    bottom: 0;
+    background-color: var(--green);
+    z-index: 0;
+    transform: translateX(-100%);
+    transition: all 0.4s ease;
+  }
+
+  span {
+    color: var(--green);
+    font-family: var(--medium-font);
+    font-size: var(--normal-font-size);
+    position: relative;
+    transition: all 0.4s ease;
+    z-index: 1;
+  }
+}
+
+
+.button__container2{
+  background-color: var(--lightergreen);
+  color: var(--green);
+}

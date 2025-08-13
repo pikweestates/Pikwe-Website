@@ -1,0 +1,12 @@
+import HomePageWrapper from "./HomePage/HomePageWrapper"
+import PortfolioPageWrapper from "./Portfolio/PortfolioPageWrapper"
+import BlogPageWrapper from "./Blog/BlogPageWrapper"
+import GalleryPageWrapper from "./Gallery/GalleryPageWrapper"
+import ServicesPageWrapper from "./Services/ServicesPageWrapper"
+
+export {
+  HomePageWrapper,
+  PortfolioPageWrapper,
+  BlogPageWrapper,
+  GalleryPageWrapper
+}

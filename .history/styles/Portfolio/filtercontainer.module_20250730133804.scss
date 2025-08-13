@@ -1,0 +1,19 @@
+.filter__container{
+  position: relative;
+  width: fit-content;
+  height: auto;
+}
+
+.fc__top{
+  padding: 1rem 1rem;
+  border: 1px solid var(--grey);
+  background-color: white;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fc__span{
+  font-size: calc(var(--normal-font-size) + 0.1rem);
+}

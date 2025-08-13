@@ -1,0 +1,36 @@
+.link__wrapper{
+  position: relative;
+
+  .linker{
+    display: flex;
+    align-items: center;
+
+    .link__icon{
+      width: 48px;
+      height: 48px;
+      position: relative;
+      display: grid;
+      place-items: center;
+      background-color: var(--lightergreen);
+
+      svg{
+        font-size: calc(var(--normal-font-size) + 0.25rem);
+        color: var(--green);
+        transform: rotate(90deg);
+      }
+    }
+
+    .button__text{
+      padding: 0rem 0.9rem;
+      height: 48px;
+      width: max-content;
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      font-size: ;
+
+    }
+  }
+}
+
+
