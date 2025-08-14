@@ -87,49 +87,61 @@ const Preloader = ({
       context.revert();
       timelineRef.current = null;
     };
-  }, [setAnimationFinished]); // Only create timeline once
+  }); // Only create timeline once
 
-  // Handle timeline resume logic
-  useEffect(() => {
-    let shouldResume = false;
+  // // Handle timeline resume logic
+  // useEffect(() => {
+  //   let shouldResume = false;
 
-    if (isHomePage) {
-      // Home: only close after counter finishes
-      shouldResume = currentValue === 100;
-    } else {
-      // Other pages: only close after phrase finishes
-      shouldResume = animFinished;
-    }
+  //   if (isHomePage) {
+  //     // Home: only close after counter finishes
+  //     shouldResume = currentValue === 100;
+  //   } else {
+  //     // Other pages: only close after phrase finishes
+  //     shouldResume = animFinished;
+  //   }
 
-    if (shouldResume && timelineRef.current && !hasResumed.current) {
-      hasResumed.current = true;
-      setTimeout(() => {
-        timelineRef.current?.resume();
-      }, 1000);
-    }
-  }, [currentValue, animFinished, isHomePage]);
+  //   if (shouldResume && timelineRef.current && !hasResumed.current) {
+  //     hasResumed.current = true;
+  //     setTimeout(() => {
+  //       timelineRef.current?.resume();
+  //     }, 1000);
+  //   }
+  // }, [currentValue, animFinished, isHomePage]);
+ Handle timeline resume logic 
+ useEffect(() => { const shouldResume = currentValue === 100 || animFinished; if (shouldResume && timelineRef.current && !hasResumed.current) { hasResumed.current = true; setTimeout(() => { timelineRef.current?.resume(); }, 1000); } }, [currentValue, animFinished]);
 
   //Get Page Name
   const [pageName, setPageName] = useState("");
 
+  const home = t("Navigation:homelink");
+  const about = t("Navigation:aboutlink");
+  const portfolio = "Portfolio";
+  const services = "Services";
+  const gallery = t("Navigation:gallerylink");
+  const blog = "Blog";
+  const privacy = t("Navigation:privacy");
+  const contact = "Contact";
+  const error = t("HomePage:error");
+
   useEffect(() => {
     const determinePageName = () => {
       if (pathname === "/en" || pathname === "/fr") {
-        setPageName(t("Navigation:homelink"));
+        setPageName(home);
       } else if (["/en/portfolio", "/fr/portfolio"].includes(pathname)) {
-        setPageName("Portfolio");
+        setPageName(portfolio);
       } else if (["/en/about", "/fr/a-propos"].includes(pathname)) {
-        setPageName(t("Navigation:aboutlink"));
+        setPageName(about);
       } else if (["/en/blog", "/fr/blog"].includes(pathname)) {
-        setPageName("Blog");
+        setPageName(blog);
       } else if (["/en/privacy", "/fr/confidentialite"].includes(pathname)) {
-        setPageName(t("Navigation:privacy"));
+        setPageName(privacy);
       } else if (["/en/services", "/fr/services"].includes(pathname)) {
-        setPageName("Services");
+        setPageName(services);
       } else if (["/en/contact", "/fr/contact"].includes(pathname)) {
-        setPageName("Contact");
+        setPageName(contact);
       } else if (["/en/gallery", "/fr/galerie"].includes(pathname)) {
-        setPageName(t("Navigation:gallerylink"));
+        setPageName(gallery);
       } else if (
         (pathname.includes("/fr/portfolio/") && pathname !== "/fr/portfolio") ||
         (pathname.includes("/en/portfolio/") && pathname !== "/en/portfolio")
@@ -143,19 +155,21 @@ const Preloader = ({
         // } else {
         //   setPageName(error);
         // }
-        setPageName("Bonaberi Investment Lot");
+        setPageName(
+          "Bonaberi Investment Lot"
+        );
       } else if (
         (pathname.includes("/fr/blog/") && pathname !== "/fr/blog") ||
         (pathname.includes("/en/blog/") && pathname !== "/en/blog")
       ) {
         setPageName("Cameroon land market trends");
       } else {
-        setPageName(t("HomePage:error"));
+        setPageName(error);
       }
     };
 
     determinePageName();
-  }, [pathname]);
+  }, [pathname, about, error, gallery, home, privacy]);
 
   return (
     <div className={styles.preloader} ref={preloaderRef}>

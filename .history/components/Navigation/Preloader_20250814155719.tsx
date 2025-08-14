@@ -87,7 +87,7 @@ const Preloader = ({
       context.revert();
       timelineRef.current = null;
     };
-  }, [setAnimationFinished]); // Only create timeline once
+  }); // Only create timeline once
 
   // Handle timeline resume logic
   useEffect(() => {
@@ -112,6 +112,16 @@ const Preloader = ({
   //Get Page Name
   const [pageName, setPageName] = useState("");
 
+  const home = t("Navigation:homelink");
+  const about = t("Navigation:aboutlink");
+  const portfolio = "Portfolio";
+  const services = "Services";
+  const gallery = t("Navigation:gallerylink");
+  const blog = "Blog";
+  const privacy = t("Navigation:privacy");
+  const contact = "Contact";
+  const error = t("HomePage:error");
+
   useEffect(() => {
     const determinePageName = () => {
       if (pathname === "/en" || pathname === "/fr") {
@@ -121,15 +131,15 @@ const Preloader = ({
       } else if (["/en/about", "/fr/a-propos"].includes(pathname)) {
         setPageName(t("Navigation:aboutlink"));
       } else if (["/en/blog", "/fr/blog"].includes(pathname)) {
-        setPageName("Blog");
+        setPageName(blog);
       } else if (["/en/privacy", "/fr/confidentialite"].includes(pathname)) {
-        setPageName(t("Navigation:privacy"));
+        setPageName(privacy);
       } else if (["/en/services", "/fr/services"].includes(pathname)) {
         setPageName("Services");
       } else if (["/en/contact", "/fr/contact"].includes(pathname)) {
-        setPageName("Contact");
+        setPageName(contact);
       } else if (["/en/gallery", "/fr/galerie"].includes(pathname)) {
-        setPageName(t("Navigation:gallerylink"));
+        setPageName(gallery);
       } else if (
         (pathname.includes("/fr/portfolio/") && pathname !== "/fr/portfolio") ||
         (pathname.includes("/en/portfolio/") && pathname !== "/en/portfolio")
@@ -150,7 +160,7 @@ const Preloader = ({
       ) {
         setPageName("Cameroon land market trends");
       } else {
-        setPageName(t("HomePage:error"));
+        setPageName(error);
       }
     };
 

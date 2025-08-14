@@ -87,7 +87,7 @@ const Preloader = ({
       context.revert();
       timelineRef.current = null;
     };
-  }, [setAnimationFinished]); // Only create timeline once
+  }, []); // Only create timeline once
 
   // Handle timeline resume logic
   useEffect(() => {

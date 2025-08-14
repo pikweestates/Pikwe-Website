@@ -87,7 +87,7 @@ const Preloader = ({
       context.revert();
       timelineRef.current = null;
     };
-  }, [setAnimationFinished]); // Only create timeline once
+  }); // Only create timeline once
 
   // Handle timeline resume logic
   useEffect(() => {
@@ -111,6 +111,16 @@ const Preloader = ({
 
   //Get Page Name
   const [pageName, setPageName] = useState("");
+
+  const home = t("Navigation:homelink");
+  const about = t("Navigation:aboutlink");
+  const portfolio = "Portfolio";
+  const services = "Services";
+  const gallery = t("Navigation:gallerylink");
+  const blog = "Blog";
+  const privacy = t("Navigation:privacy");
+  const contact = "Contact";
+  const error = t("HomePage:error");
 
   useEffect(() => {
     const determinePageName = () => {
