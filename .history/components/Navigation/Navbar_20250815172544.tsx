@@ -93,7 +93,7 @@ const Navbar = ({setLocalState, animationFinished}: {setLocalState: React.Dispat
         },
       });
     }
-  }, [animationFinished]);
+  });
 
   return (
     <>

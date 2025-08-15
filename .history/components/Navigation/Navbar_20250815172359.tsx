@@ -71,21 +71,26 @@ const Navbar = ({setLocalState, animationFinished}: {setLocalState: React.Dispat
           if (self.scroll() < 600) {
             gsap.to(navigation, {
               clipPath: "polygon(0% 0%, 100% 0%, 100% 102%, 0% 102%)",
-              duration: 1,
+              duration: 0.5,
             });
           } else {
+            // Once past 700, always force the gradient background immediately.
+            // gsap.set(navigation, {
+            //   background:
+            //     "linear-gradient(180deg, rgba(255, 91, 0, 0.8) 20%, rgba(255, 91, 0, 0) 100%)",
+            // });
             // Then animate the translateY based on scroll direction.
             if (self.direction === 1 && self.scroll() > lastScroll) {
               // Scrolling down: hide nav.
               gsap.to(navigation, {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-                duration: 1,
+                duration: 0.5,
               });
             } else if (self.direction === -1 && self.scroll() < lastScroll) {
               // Scrolling up: show nav.
               gsap.to(navigation, {
                 clipPath: "polygon(0% 0%, 100% 0%, 100% 102%, 0% 102%)",
-                duration: 1,
+                duration: 0.5,
               });
             }
           }

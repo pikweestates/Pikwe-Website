@@ -74,6 +74,11 @@ const Navbar = ({setLocalState, animationFinished}: {setLocalState: React.Dispat
               duration: 1,
             });
           } else {
+            // Once past 700, always force the gradient background immediately.
+            // gsap.set(navigation, {
+            //   background:
+            //     "linear-gradient(180deg, rgba(255, 91, 0, 0.8) 20%, rgba(255, 91, 0, 0) 100%)",
+            // });
             // Then animate the translateY based on scroll direction.
             if (self.direction === 1 && self.scroll() > lastScroll) {
               // Scrolling down: hide nav.
