@@ -81,9 +81,9 @@
     background-color: var(--lightergreen);
   }
 
-  // &.s__item2{
-  //   border-bottom: none;
-  // }
+  &:nth-last-of-type(2){
+    bo
+  }
 
   &.active__select {
     cursor: default;
@@ -99,13 +99,6 @@
 
 
 //Responsive Design 
-@media screen and (max-width: 1530px) {
-  .s__item{
-      &.s__item2{
-    border-bottom: none;
-  }
-  }
-}
 @media screen and (max-width: 1088px) {
   .selector {
     top: 3.45rem;

@@ -57,7 +57,7 @@ const Navbar = ({setLocalState, animationFinished}: {setLocalState: React.Dispat
     if (navigation) {
       // Initially set navigation to visible with a transparent background.
       gsap.set(navigation, {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 250%, 0% 250%)",
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 220%, 0% 220%)",
       });
 
       let lastScroll = 0;
@@ -70,7 +70,7 @@ const Navbar = ({setLocalState, animationFinished}: {setLocalState: React.Dispat
           // If scrolled less than 700, force nav to be visible and transparent.
           if (self.scroll() < 600) {
             gsap.to(navigation, {
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 250%, 0% 250%)",
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 250%, 0% 220%)",
               duration: 1,
             });
           } else {

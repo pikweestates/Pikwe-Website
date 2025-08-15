@@ -55,7 +55,7 @@
   gap: 0;
   border-left: 1px solid var(--grey);
   border-right: 1px solid var(--grey);
-  border-bottom: 1px solid var(--grey);
+  border-bottom: ;
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   transition: all 0.4s ease;
 
@@ -81,10 +81,6 @@
     background-color: var(--lightergreen);
   }
 
-  // &.s__item2{
-  //   border-bottom: none;
-  // }
-
   &.active__select {
     cursor: default;
     span {
@@ -99,13 +95,6 @@
 
 
 //Responsive Design 
-@media screen and (max-width: 1530px) {
-  .s__item{
-      &.s__item2{
-    border-bottom: none;
-  }
-  }
-}
 @media screen and (max-width: 1088px) {
   .selector {
     top: 3.45rem;

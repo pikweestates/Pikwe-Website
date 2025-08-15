@@ -50,50 +50,50 @@ const Navbar = ({setLocalState, animationFinished}: {setLocalState: React.Dispat
 
   const navbar = useRef<HTMLHeadElement>(null);
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+  // useEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
 
-    const navigation = navbar.current;
-    if (navigation) {
-      // Initially set navigation to visible with a transparent background.
-      gsap.set(navigation, {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 250%, 0% 250%)",
-      });
+  //   const navigation = navbar.current;
+  //   if (navigation) {
+  //     // Initially set navigation to visible with a transparent background.
+  //     gsap.set(navigation, {
+  //       clipPath: "polygon(0% 0%, 100% 0%, 100% 250%, 0% 250%)",
+  //     });
 
-      let lastScroll = 0;
+  //     let lastScroll = 0;
 
-      ScrollTrigger.create({
-        start: "top+=600 top",
-        end: "bottom bottom",
-        scrub: 0.3,
-        onUpdate: (self) => {
-          // If scrolled less than 700, force nav to be visible and transparent.
-          if (self.scroll() < 600) {
-            gsap.to(navigation, {
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 250%, 0% 250%)",
-              duration: 1,
-            });
-          } else {
-            // Then animate the translateY based on scroll direction.
-            if (self.direction === 1 && self.scroll() > lastScroll) {
-              // Scrolling down: hide nav.
-              gsap.to(navigation, {
-                clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
-                duration: 1,
-              });
-            } else if (self.direction === -1 && self.scroll() < lastScroll) {
-              // Scrolling up: show nav.
-              gsap.to(navigation, {
-                clipPath: "polygon(0% 0%, 100% 0%, 100% 250%, 0% 250%)",
-                duration: 1,
-              });
-            }
-          }
-          lastScroll = self.scroll();
-        },
-      });
-    }
-  }, [animationFinished]);
+  //     ScrollTrigger.create({
+  //       start: "top+=600 top",
+  //       end: "bottom bottom",
+  //       scrub: 0.3,
+  //       onUpdate: (self) => {
+  //         // If scrolled less than 700, force nav to be visible and transparent.
+  //         if (self.scroll() < 600) {
+  //           gsap.to(navigation, {
+  //             clipPath: "polygon(0% 0%, 100% 0%, 100% 250%, 0% 250%)",
+  //             duration: 1,
+  //           });
+  //         } else {
+  //           // Then animate the translateY based on scroll direction.
+  //           if (self.direction === 1 && self.scroll() > lastScroll) {
+  //             // Scrolling down: hide nav.
+  //             gsap.to(navigation, {
+  //               clipPath: "polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)",
+  //               duration: 1,
+  //             });
+  //           } else if (self.direction === -1 && self.scroll() < lastScroll) {
+  //             // Scrolling up: show nav.
+  //             gsap.to(navigation, {
+  //               clipPath: "polygon(0% 0%, 100% 0%, 100% 250%, 0% 250%)",
+  //               duration: 1,
+  //             });
+  //           }
+  //         }
+  //         lastScroll = self.scroll();
+  //       },
+  //     });
+  //   }
+  // }, [animationFinished]);
 
   return (
     <>

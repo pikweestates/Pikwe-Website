@@ -100,7 +100,7 @@ export default function LanguageSelector({status, setActiveSide, setLocalState}:
           <span>EN</span>
         </div>
         <div
-          className={`${styles.s__item} ${styles.s__item2} ${currentLocale==="fr" ? styles.active__select : ""}`}
+          className={`${styles.s__item} ${styles.s__item} ${currentLocale==="fr" ? styles.active__select : ""}`}
           onClick={() => {
             handleChange("fr");
             setActiveSide(false)

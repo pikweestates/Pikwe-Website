@@ -57,7 +57,7 @@ const Navbar = ({setLocalState, animationFinished}: {setLocalState: React.Dispat
     if (navigation) {
       // Initially set navigation to visible with a transparent background.
       gsap.set(navigation, {
-        clipPath: "polygon(0% 0%, 100% 0%, 100% 250%, 0% 250%)",
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 220%, 0% 220%)",
       });
 
       let lastScroll = 0;
