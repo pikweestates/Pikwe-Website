@@ -51,7 +51,7 @@ export default async function RootLayout({
           namespaces={i18nNamespaces}
         >
           {children}
-          <CookieConsent/>
+          <CookieConsent />
         </TranslationsProvider>
       </body>
     </html>

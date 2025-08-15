@@ -1,0 +1,157 @@
+.hero__section{
+  width: 100%;
+  height: 95vh;
+  overflow: hidden;
+  position: relative;
+  max-height: 820px;
+  max-width: 1700px;
+}
+
+.hero__container{
+  position: relative;
+  z-index: 1;
+  height: 100%;
+}
+
+.hero__background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+
+  .hback__image{
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    img{
+      object-fit: cover;
+    }
+  }
+}
+
+.hero__content{
+  width: 100%;
+  height: max-content;
+  position: absolute;
+  top: 55%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 5rem;
+}
+
+.hero__left{
+  width: 50%;
+}
+
+.hero__h1{
+  font-size: var(--biggest-font-size);
+  color: var(--green);
+  font-family: var(--medium-font);
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+.hero__right{
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.7rem;
+  margin-top: 1.5rem;
+}
+
+.hero__p{
+  width: 80%;
+  font-size: calc(var(--normal-font-size) + 0.15rem);
+  line-height: 1.3;
+}
+
+.linkb__wrap{
+  width: max-content;
+  transform: all 0.7s ease;
+}
+
+
+//Responsive Design
+
+@media screen and (min-width: 1024px ) {
+  .hero__section{
+    max-height: 700px;
+  }
+  
+}
+
+@media screen and (max-width: 1088px) {
+  .hero__left{
+    width: 60%;
+  }
+
+  .hero__right{
+    width: 40%;
+    gap: 1.7rem;
+    margin-top: 1.5rem;
+  }
+
+  .hero__p{
+    width: 100%;
+    font-size: calc(var(--normal-font-size) + 0.15rem);
+    line-height: 1.3;
+  }
+
+  .hero__content{
+    gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .hero__content{
+    width: 100%;
+    top: 0%;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    position: relative;
+  }
+
+
+  .hero__left{
+    width: 95%;
+  }
+
+  .hero__right{
+    width: 60%;
+    gap: 1.7rem;
+    margin-top: 0rem;
+  }
+
+  .hero__section{
+    height: max-content;
+    padding: 10rem 0 6rem;
+  }
+}
+
+
+@media screen and (max-width: 560px) {
+  .hero__left{
+    width: 100%;
+  }
+
+  .hero__right{
+    width: 95%;
+    gap: 1.7rem;
+    margin-top: 0rem;
+  }
+
+  .hero__p{
+    font-size: calc(var(--normal-font-size) + 0.1rem);
+  }
+  
+
+}

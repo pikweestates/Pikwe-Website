@@ -1,0 +1,40 @@
+import React from "react";
+import Copy from "./Copy";
+import { useTranslation } from "react-i18next";
+import Image from "next/image";
+import { useScroll, motion, useTransform } from "framer-motion";
+import IMAGE from "../../public/svg/"
+import IMAGE2 from "../../public/svg/wpattmobile.svg"
+import SquareButton from "./SquareButton";
+import styles from "../../styles/ReUsables/contactfooter.module.scss";
+
+const ContactFooter = ({ text }: { text: string }) => {
+  //Translations
+  const { t, i18n } = useTranslation();
+  const currentlocale = i18n.language;
+
+  const linkContent = {
+    href: `/${currentlocale}/contact`,
+    text: t("Navigation:buttontext"),
+  };
+
+  return (
+    <div className={styles.cf__section}>
+      <div className={`container ${styles.cf__container}`}>
+        <div className={styles.cf__content}>
+          <Copy>
+            <h2 className={styles.cf__h2}>{text}</h2>
+          </Copy>
+          <SquareButton status="green" content={linkContent} />
+        </div>
+      </div>
+      <div className={styles.cf__background}>
+        <motion.div className={styles.hback__image} style={{ y }}>
+          <Image fill quality={100} alt="PIKWE PATTERN" src={background} />
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+export default ContactFooter;
