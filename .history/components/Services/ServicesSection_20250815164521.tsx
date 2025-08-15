@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import IMAGE from "../../public/images/education.jpg";
-import IMAGE2 from "../../public/images/sales.jpg";
-import IMAGE3 from "../../public/images/development.jpg";
+import IMAGE from "../../public/images/service.jpg";
 import LinkButton from "../ReUsables/LinkButton";
 import Copy from "../ReUsables/Copy";
 import ImagePlaceholder from "../ReUsables/ImagePlaceholder";
@@ -28,7 +26,7 @@ const ServicesSection = () => {
     {
       name: t("HomePage:snamethree"),
       text: t("HomePage:stextthree"),
-      image: IMAGE3,
+      image: IMAGE,
     },
   ];
 

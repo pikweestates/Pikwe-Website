@@ -3,9 +3,8 @@
 import React, {useState} from "react";
 import { useTranslation } from "react-i18next";
 import SectionHeader from "../ReUsables/SectionHeader";
-import IMAGE from "../../public/images/education.jpg";
+import IMAGE from "../../public/images/.jpg";
 import IMAGE2 from "../../public/images/sales.jpg"
-import IMAGE3 from "../../public/images/development.jpg"
 import Lenis from "lenis";
 import LinkButton from "../ReUsables/LinkButton";
 import styles from "../../styles/HomePage/homesolutions.module.scss";
@@ -37,12 +36,12 @@ const HomeSolutions = ({lenis}: {lenis: Lenis | null}) => {
     {
       name: t("HomePage:snametwo"),
       text: t("HomePage:stexttwo"),
-      image: IMAGE2,
+      image: IMAGE,
     },
     {
       name: t("HomePage:snamethree"),
       text: t("HomePage:stextthree"),
-      image: IMAGE3,
+      image: IMAGE,
     },
   ];
 

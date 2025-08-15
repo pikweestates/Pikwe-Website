@@ -37,12 +37,12 @@ const HomeSolutions = ({lenis}: {lenis: Lenis | null}) => {
     {
       name: t("HomePage:snametwo"),
       text: t("HomePage:stexttwo"),
-      image: IMAGE2,
+      image: IMAGE,
     },
     {
       name: t("HomePage:snamethree"),
       text: t("HomePage:stextthree"),
-      image: IMAGE3,
+      image: IMAGE,
     },
   ];
 
