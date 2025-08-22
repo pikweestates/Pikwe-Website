@@ -169,8 +169,22 @@
   }
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 560px) {
+  .hero__left{
+    width: 100%;
+  }
+
+  .hero__right{
+    width: 95%;
+    gap: 1.7rem;
+    margin-top: 0rem;
+  }
+
+  .hero__p{
+    font-size: calc(var(--normal-font-size) + 0.1rem);
+  }
+  
   .hero__h1{
-    font-size: calc(var(--biggest-font-size));
+    font-size: calc(var(--biggest-font-size) + 0.1rem);
   }
 }

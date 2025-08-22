@@ -165,12 +165,11 @@
   }
   
   .hero__h1{
-    font-size: calc(var(--biggest-font-size) + 0.1rem);
+    font-size: calc(var(--biggest-font-size) + 0.2rem);
+    color: var(--green);
+    font-family: var(--medium-font);
+    line-height: 1.125;
+    word-wrap: break-word;
   }
-}
 
-@media screen and (max-width: 380px) {
-  .hero__h1{
-    font-size: calc(var(--biggest-font-size));
-  }
 }

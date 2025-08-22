@@ -165,12 +165,7 @@
   }
   
   .hero__h1{
-    font-size: calc(var(--biggest-font-size) + 0.1rem);
+    font-size: calc(var(--biggest-font-size) + 0.2rem);
   }
-}
 
-@media screen and (max-width: 380px) {
-  .hero__h1{
-    font-size: calc(var(--biggest-font-size));
-  }
 }
