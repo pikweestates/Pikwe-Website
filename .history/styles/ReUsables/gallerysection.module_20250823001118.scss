@@ -274,7 +274,14 @@
   }
 
   .gbm__bottom{
-    padding: 0.9rem 0.8rem 1rem;
+    display: none;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem 1rem;
+    border: 1px solid var(--grey);
+    border-top: none !important;
   }
   
 }
