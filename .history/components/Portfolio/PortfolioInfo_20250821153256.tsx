@@ -1,0 +1,135 @@
+import React from "react";
+import { useTranslation } from "react-i18next";
+import LinkButton from "../ReUsables/LinkButton";
+import SectionHeader from "../ReUsables/SectionHeader";
+import Copy from "../ReUsables/Copy";
+import styles from "../../styles/Portfolio/portfolioinfo.module.scss";
+
+interface Property {
+  _id: string;
+  mainimage: {
+    alt: string;
+  };
+  slug: {
+    current: string;
+  };
+  location: string;
+  price: number;
+  surfacearea: number;
+  reference: {
+    current: string
+  };
+  name: string;
+  landstatuss: {
+    name: string,
+    namefr: string
+  },
+  detailsen: string,
+  detailsfr: string,
+  images: {
+    alt: string;
+  }[],
+}
+
+const PortfolioInfo = ({post}: {post: Property}) => {
+  //Translations
+  const { t, i18n } = useTranslation();
+  const currentlocale = i18n.language;
+
+  const infoDetails = [
+    {
+      key: "location",
+      name: t("Portfolio:location"),
+      value: post.location,
+    },
+    {
+      key: "surface",
+      name: t("Portfolio:surface"),
+      value: post.surfacearea,
+    },
+    {
+      key: "price",
+      name: t("Portfolio:pricing"),
+      value: post.price,
+    },
+    {
+      key: "status",
+      name: t("Portfolio:statuss"),
+      value: currentlocale==="en" ? post.landstatuss.name : post.landstatuss.namefr,
+    },
+    {
+      key: "reference",
+      name: t("Portfolio:reference"),
+      value: post.reference,
+    },
+  ];
+
+  const propertyName = post.name;
+
+  console.log(infoDetails)
+
+  const sectionData = {
+    small: "Description",
+    h2: t("Portfolio:detailed"),
+    text: currentlocale==="en" ? post.detailsen : post.detailsfr,
+  };
+
+  const formatNumber = (num: number) => {
+    // Convert to number if it's a string
+    const numValue = typeof num === "string" ? parseFloat(num) : num;
+
+    // Return as-is if not a valid number
+    if (isNaN(numValue)) return num;
+
+    // Use toLocaleString for comma formatting
+    return numValue.toLocaleString();
+  };
+
+  const getDisplayValue = (item: (typeof infoDetails)[0]) => {
+    switch (item.key) {
+      case "surface":
+        return `${formatNumber(Number(item.value))} m²`;
+      case "price":
+        return formatNumber(Number(item.value));
+      default:
+        return item.value;
+    }
+  };
+
+  const linkData = {
+    href: `${currentlocale}/contact`,
+    text: t("Navigation:buttontext"),
+  };
+
+  return (
+    <div className={`section ${styles.pi__section}`}>
+      <div className={`container ${styles.pi__container}`}>
+        <div className={styles.pi__top}>
+          {infoDetails.map((data, i) => (
+            <div className={styles.pi__box} key={i}>
+              <Copy>
+                <span className={styles.pi__span}>{data.name}</span>
+              </Copy>
+              <Copy>
+                <h3 className={styles.pi__h3}>{getDisplayValue(data)}</h3>
+              </Copy>
+            </div>
+          ))}
+        </div>
+        <div className={styles.pi__bottom}>
+          <SectionHeader sectionData={sectionData} />
+          <div className={styles.pib__contact}>
+            <Copy>
+              <span className={styles.pib__span}>
+                {t("Portfolio:cta", { propertyName })}
+              </span>
+            </Copy>
+            <LinkButton linkData={linkData} />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default PortfolioInfo;
