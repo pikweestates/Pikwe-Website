@@ -23,7 +23,6 @@ const HomeInsights = ({blogs}: {blogs: BlogPost[]}) => {
 
   const insightLink = {
     href: `${currentlocale}/blog`,
-    
     text: t("HomePage:insightlink"),
   };
 
