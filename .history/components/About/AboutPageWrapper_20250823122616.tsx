@@ -1,29 +1,18 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
-import { useTranslation } from "react-i18next";
+import React, { useEffect, useState } from "react";
 import Preloader from "../Navigation/Preloader";
+import { useTranslation } from "react-i18next";
 import Navbar from "../Navigation/Navbar";
 import HeroSection from "../ReUsables/HeroSection";
-import GallerySection from "./GallerySection";
 import ContactFooter from "../ReUsables/ContactFooter";
+import AboutVision from "./AboutVision";
 import Footer from "../Navigation/Footer";
+import TeamSection from "./TeamSection";
 import Lenis from "lenis";
+import AboutQuote from "./AboutQuote";
 
-interface Gallery{
-  image: {
-    alt: string
-  },
-  descriptionen: string,
-  descriptionfr: string,
-  _id: string
-}
-
-const GalleryPageWrapper = ({gallery}: {gallery: Gallery[]}) => {
-  //Lenis State
-  const [lenis, setLenis] = useState<Lenis | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
+const AboutPageWrapper = () => {
   //Smooth Scroll
   useEffect(() => {
     const lenisInstance = new Lenis({
@@ -36,25 +25,21 @@ const GalleryPageWrapper = ({gallery}: {gallery: Gallery[]}) => {
     }
 
     requestAnimationFrame(raf);
-
-    // Store the lenis instance in state
-    setLenis(lenisInstance);
   }, []);
 
   //Translations
-  const { t } = useTranslation();
-  // const currentlocale = i18n.language;
+  const { t, i18n } = useTranslation();
+  const currentlocale = i18n.language;
 
   //HeroSection
   const mainData = {
-    hero: t("Gallery:heroh2"),
-    subtext: t("Gallery:herotext"),
+    hero: t("About:heroh2"),
+    subtext: t("About:herotext"),
   };
 
-  const scrollData = {
-    lenis: lenis,
-    reference: containerRef,
-    text: t("Gallery:herolink"),
+  const linkData = {
+    href: `/${currentlocale}/portfolio`,
+    text: t("HomePage:portlink"),
   };
 
   //Preloader Management
@@ -84,11 +69,11 @@ const GalleryPageWrapper = ({gallery}: {gallery: Gallery[]}) => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const initially = localStorage.getItem("isFirstVisitGallery");
+      const initially = localStorage.getItem("isFirstVisitAbout");
 
       if (initially === null) {
         setTimeout(() => {
-          localStorage.setItem("isFirstVisitGallery", "true");
+          localStorage.setItem("isFirstVisitAbout", "true");
           setIsFirstVisit(true);
         }, 0);
       } else {
@@ -96,7 +81,7 @@ const GalleryPageWrapper = ({gallery}: {gallery: Gallery[]}) => {
       }
 
       const handleBeforeUnload = () => {
-        localStorage.removeItem("isFirstVisitGallery");
+        localStorage.removeItem("isFirstVisitAbout");
       };
 
       window.addEventListener("beforeunload", handleBeforeUnload);
@@ -126,22 +111,23 @@ const GalleryPageWrapper = ({gallery}: {gallery: Gallery[]}) => {
           localState={localstate}
         />
       )}
-
       <Navbar
         setLocalState={setLocalState}
         animationFinished={animationFinished}
       />
       <HeroSection
         mainData={mainData}
-        scrollData={scrollData}
+        linkData={linkData}
         animationFinished={animationFinished}
-        height="90vh"
+        height="100vh"
       />
-      <GallerySection ref={containerRef} gallery={gallery}/>
+      <AboutVision />
+      <AboutQuote />
+      <TeamSection />
       <ContactFooter text={t("HomePage:homeready")} />
       <Footer />
     </>
   );
 };
 
-export default GalleryPageWrapper;
+export default AboutPageWrapper;

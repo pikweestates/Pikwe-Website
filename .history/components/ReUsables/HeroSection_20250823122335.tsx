@@ -75,7 +75,7 @@ const HeroSection = ({
   
     const y = useTransform(scrollYProgress, [0, 1], [transform, 0]);
   return (
-    <div className={`${styles.hero__section}`} style={{height}}>
+    <div className={`${styles.hero__section}`}>
       <div className={`container ${styles.hero__container}`}>
         <div className={styles.hero__content}>
           <div className={styles.hero__left}>

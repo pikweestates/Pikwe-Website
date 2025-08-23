@@ -1,17 +1,17 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
+import Preloader from "../Navigation/Preloader";
 import { useTranslation } from "react-i18next";
 import Navbar from "../Navigation/Navbar";
 import HeroSection from "../ReUsables/HeroSection";
 import ContactFooter from "../ReUsables/ContactFooter";
-import BlogSection from "./BlogSection";
-import Preloader from "../Navigation/Preloader";
+import PortfolioSection from "./PortfolioSection";
 import Footer from "../Navigation/Footer";
-import { BlogPost, Category} from "@/types";
+import { Property } from "@/types";
 import Lenis from "lenis";
 
-const BlogPageWrapper = ({blogs, categories}: {blogs: BlogPost[], categories: Category[]}) => {
+const PortfolioPageWrapper = ({properties}: {properties: Property[]}) => {
   //Lenis State
   const [lenis, setLenis] = useState<Lenis | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -39,14 +39,14 @@ const BlogPageWrapper = ({blogs, categories}: {blogs: BlogPost[], categories: Ca
 
   //HeroSection
   const mainData = {
-    hero: t("HomePage:insighth2"),
-    subtext: t("Blog:herotext"),
+    hero: t("Portfolio:heroheader"),
+    subtext: t("Portfolio:herotext"),
   };
 
   const scrollData = {
     lenis: lenis,
     reference: containerRef,
-    text: t("Blog:herolink"),
+    text: t("HomePage:portlink"),
   };
 
   //Preloader Management
@@ -71,12 +71,53 @@ const BlogPageWrapper = ({blogs, categories}: {blogs: BlogPost[], categories: Ca
     }
   }, [animationFinished]);
 
+  //INITIAL VISIT MANAGMENT
+  const [isFirstVisit, setIsFirstVisit] = useState(true);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const initially = localStorage.getItem("isFirstVisitPortfolio");
+
+      if (initially === null) {
+        setTimeout(() => {
+          localStorage.setItem("isFirstVisitPortfolio", "true");
+          setIsFirstVisit(true);
+        }, 0);
+      } else {
+        setIsFirstVisit(false);
+      }
+
+      const handleBeforeUnload = () => {
+        localStorage.removeItem("isFirstVisitPortfolio");
+      };
+
+      window.addEventListener("beforeunload", handleBeforeUnload);
+
+      return () => {
+        window.removeEventListener("beforeunload", handleBeforeUnload);
+      };
+    }
+  }, []);
+
+  // If preloader is NOT showing, mark animation finished so the page shows
+  useEffect(() => {
+    const preloaderShouldShow =
+      isFirstVisit || localstate === "Translating State";
+    if (!preloaderShouldShow) {
+      // ensure the rest of the UI can animate in / render immediately
+      setAnimationFinished(true);
+    }
+    // if preloader should show, we rely on the Preloader component to call setAnimationFinished(true)
+  }, [isFirstVisit, localstate]);
+
   return (
     <>
-      <Preloader
-        setAnimationFinished={setAnimationFinished}
-        localState={localstate}
-      />
+      {(isFirstVisit || localstate === "Translating State") && (
+        <Preloader
+          setAnimationFinished={setAnimationFinished}
+          localState={localstate}
+        />
+      )}
 
       <Navbar
         setLocalState={setLocalState}
@@ -86,13 +127,13 @@ const BlogPageWrapper = ({blogs, categories}: {blogs: BlogPost[], categories: Ca
         mainData={mainData}
         scrollData={scrollData}
         animationFinished={animationFinished}
-        height="90vh"
+        height="100vh"
       />
-      <BlogSection ref={containerRef} blogs={blogs} categories={categories}/>
+      <PortfolioSection ref={containerRef} properties={properties}/>
       <ContactFooter text={t("HomePage:homeready")} />
       <Footer />
     </>
   );
 };
 
-export default BlogPageWrapper;
+export default PortfolioPageWrapper;

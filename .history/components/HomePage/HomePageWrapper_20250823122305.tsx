@@ -1,28 +1,27 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import Preloader from "../Navigation/Preloader";
 import Navbar from "../Navigation/Navbar";
 import HeroSection from "../ReUsables/HeroSection";
-import GallerySection from "./GallerySection";
+import HomeSolutions from "./HomeSolutions";
+import VideoPlayer from "./VideoPlayer";
+import RoadMap from "./RoadMap";
+import HomePortfolio from "./HomePortfolio";
+import HomeInsights from "./HomeInsights";
+import Vision from "./Vision";
 import ContactFooter from "../ReUsables/ContactFooter";
 import Footer from "../Navigation/Footer";
 import Lenis from "lenis";
+import Preloader from "../Navigation/Preloader";
+import { Property, BlogPost } from "@/types";
 
-interface Gallery{
-  image: {
-    alt: string
-  },
-  descriptionen: string,
-  descriptionfr: string,
-  _id: string
-}
 
-const GalleryPageWrapper = ({gallery}: {gallery: Gallery[]}) => {
+
+const HomePageWrapper = ({properties, blogs}: {properties: Property[] , blogs: BlogPost[]}) => {
   //Lenis State
   const [lenis, setLenis] = useState<Lenis | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [animationFinished, setAnimationFinished] = useState(false);
 
   //Smooth Scroll
   useEffect(() => {
@@ -42,23 +41,21 @@ const GalleryPageWrapper = ({gallery}: {gallery: Gallery[]}) => {
   }, []);
 
   //Translations
-  const { t } = useTranslation();
-  // const currentlocale = i18n.language;
+  const { t, i18n } = useTranslation();
+  const currentlocale = i18n.language;
 
   //HeroSection
   const mainData = {
-    hero: t("Gallery:heroh2"),
-    subtext: t("Gallery:herotext"),
+    hero: t("HomePage:heroheader"),
+    subtext: t("HomePage:herotext"),
   };
 
-  const scrollData = {
-    lenis: lenis,
-    reference: containerRef,
-    text: t("Gallery:herolink"),
+  const linkData = {
+    href: `${currentlocale}/contact`,
+    text: t("Navigation:buttontext"),
   };
 
   //Preloader Management
-  const [animationFinished, setAnimationFinished] = useState(false);
   const [localstate, setLocalState] = useState(() => {
     if (typeof window !== "undefined") {
       return localStorage.getItem("myState") || "Initial State";
@@ -73,6 +70,7 @@ const GalleryPageWrapper = ({gallery}: {gallery: Gallery[]}) => {
     }
   }, [localstate]);
 
+  // In your original code you set animationFinished true -> setLocalState("Initial State")
   useEffect(() => {
     if (animationFinished) {
       setLocalState("Initial State");
@@ -84,11 +82,11 @@ const GalleryPageWrapper = ({gallery}: {gallery: Gallery[]}) => {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const initially = localStorage.getItem("isFirstVisitGallery");
+      const initially = localStorage.getItem("isFirstVisit");
 
       if (initially === null) {
         setTimeout(() => {
-          localStorage.setItem("isFirstVisitGallery", "true");
+          localStorage.setItem("isFirstVisit", "true");
           setIsFirstVisit(true);
         }, 0);
       } else {
@@ -96,7 +94,7 @@ const GalleryPageWrapper = ({gallery}: {gallery: Gallery[]}) => {
       }
 
       const handleBeforeUnload = () => {
-        localStorage.removeItem("isFirstVisitGallery");
+        localStorage.removeItem("isFirstVisit");
       };
 
       window.addEventListener("beforeunload", handleBeforeUnload);
@@ -109,8 +107,7 @@ const GalleryPageWrapper = ({gallery}: {gallery: Gallery[]}) => {
 
   // If preloader is NOT showing, mark animation finished so the page shows
   useEffect(() => {
-    const preloaderShouldShow =
-      isFirstVisit || localstate === "Translating State";
+    const preloaderShouldShow = isFirstVisit || localstate === "Translating State";
     if (!preloaderShouldShow) {
       // ensure the rest of the UI can animate in / render immediately
       setAnimationFinished(true);
@@ -126,22 +123,26 @@ const GalleryPageWrapper = ({gallery}: {gallery: Gallery[]}) => {
           localState={localstate}
         />
       )}
-
       <Navbar
         setLocalState={setLocalState}
         animationFinished={animationFinished}
       />
       <HeroSection
         mainData={mainData}
-        scrollData={scrollData}
+        linkData={linkData}
         animationFinished={animationFinished}
-        height="90vh"
+        height=
       />
-      <GallerySection ref={containerRef} gallery={gallery}/>
+      <VideoPlayer src="/videos/homevideo.mp4" />
+      <RoadMap />
+      <HomePortfolio properties={properties} />
+      <HomeSolutions lenis={lenis} />
+      <Vision />
+      <HomeInsights blogs={blogs}/>
       <ContactFooter text={t("HomePage:homeready")} />
       <Footer />
     </>
   );
 };
 
-export default GalleryPageWrapper;
+export default HomePageWrapper;
