@@ -8,16 +8,10 @@ import ContactFooter from "../ReUsables/ContactFooter";
 import BlogSection from "./BlogSection";
 import Preloader from "../Navigation/Preloader";
 import Footer from "../Navigation/Footer";
-import { BlogPost, Category } from "@/types";
+import { BlogPost, Category} from "@/types";
 import Lenis from "lenis";
 
-const BlogPageWrapper = ({
-  blogs,
-  categories,
-}: {
-  blogs: BlogPost[];
-  categories: Category[];
-}) => {
+const BlogPageWrapper = ({blogs, categories}: {blogs: BlogPost[], categories: Category[]}) => {
   //Lenis State
   const [lenis, setLenis] = useState<Lenis | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -118,12 +112,10 @@ const BlogPageWrapper = ({
 
   return (
     <>
-      {(isFirstVisit || localstate === "Translating State") && (
-        <Preloader
-          setAnimationFinished={setAnimationFinished}
-          localState={localstate}
-        />
-      )}
+      <Preloader
+        setAnimationFinished={setAnimationFinished}
+        localState={localstate}
+      />
 
       <Navbar
         setLocalState={setLocalState}
@@ -135,7 +127,7 @@ const BlogPageWrapper = ({
         animationFinished={animationFinished}
         height="90vh"
       />
-      <BlogSection ref={containerRef} blogs={blogs} categories={categories} />
+      <BlogSection ref={containerRef} blogs={blogs} categories={categories}/>
       <ContactFooter text={t("HomePage:homeready")} />
       <Footer />
     </>
