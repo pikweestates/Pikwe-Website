@@ -1,0 +1,106 @@
+import { Metadata } from "next";
+import { client } from "@/sanity/lib/client";
+import { notFound } from "next/navigation";
+import React from "react";
+import {PortfolioDetailsWrapper} from "@/components";
+import { urlFor } from "@/sanity/lib/image";
+
+export const revalidate = 60;
+
+type Props = {
+  params: Promise<{ locale: string, portfolio: string }>
+}
+
+async function getAllPropertySlugs(): Promise<string[]> {
+  const query = `*[_type == "property" && defined(slug.current)]{
+    "slug": slug.current
+  }`;
+  
+  const property = await client.fetch(query);
+  return property.map((portfolio: { slug: string }) => portfolio.slug);
+}
+
+// Generate static params for all blog posts
+export async function generateStaticParams() {
+  const propertySlugs = await getAllPropertySlugs(); // You need to create this function
+  
+  // Generate params for both locales
+  const params = [];
+  
+  for (const slug of propertySlugs) {
+    params.push(
+      { locale: 'en', portfolio: slug },
+      { locale: 'fr', portfolio: slug }
+    );
+  }
+  
+  return params;
+}
+
+//MetaData
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // read route params
+  const {locale, portfolio} = await params;
+  const property = await getPost(portfolio);
+
+  return {
+    title: `PIKWE ESTATES - ${property.name}`,
+    description: locale==="en" ? property.detailsen: property.detailsfr,
+    openGraph: {
+      images: [
+        {
+          url: urlFor(property.mainimage).width(1200).height(630).url()
+        }
+      ]
+    }
+  };
+}
+
+
+async function getPost(property: string) {
+  const query = `*[_type == "property" && slug.current == "${property}"][0] {
+    name,
+    slug,
+    reference,
+    mainimage,
+    location,
+    price,
+    surfacearea,
+    landstatuss->,
+    detailsen,
+    detailsfr,
+    images,
+    _id
+}`;
+
+  const data = await client.fetch(query);
+  return data;
+}
+
+
+export default async function Portfolio({params}: {params: Promise<{portfolio: string}>} ) {
+  const { portfolio } = await params;
+  const post = await getPost(portfolio);
+
+  if (!post) {
+    notFound();
+  }
+
+  return (
+    <Suspense
+    fallback={
+      <div
+        style={{
+          width: "100vw",
+          height: "100dvh",
+          position: "fixed",
+          top: 0,
+          left: 0,
+          backgroundColor: "#032b1e",
+          zIndex: 10000,
+        }}
+      ></div>
+    }
+  >
+  <PortfolioDetailsWrapper post={post}  /></Suspense>)
+}
