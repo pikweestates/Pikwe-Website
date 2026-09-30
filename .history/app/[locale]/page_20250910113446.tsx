@@ -61,7 +61,7 @@ export default async function Home() {
         ></div>
       }
     >
-      <HomePageWrapper properties={properties} blogs={blogs} />
+      <HomePageWrapper properties={properties} blogs={blogs} />;
     </Suspense>
   );
 }

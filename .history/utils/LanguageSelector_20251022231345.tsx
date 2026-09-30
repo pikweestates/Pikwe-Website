@@ -46,7 +46,7 @@ export default function LanguageSelector({
   const handleChange = (newLocale: string) => {
     //Managing Local State
     setLocalState("Translating State");
-
+    
     // set cookie for next-i18n-router
     const days = 30;
     const date = new Date();
@@ -89,10 +89,11 @@ export default function LanguageSelector({
           : newPathname.replace("/confidentialite", "/privacy");
     }
 
-    history.pushState(null, "", newPathname);
+        // router.push(newPathname);
+        history.pushState(null, "", newPathname);
 
-    // update i18next language so client strings rerender
-    i18n.changeLanguage(newLocale);
+        // update i18next language so client strings rerender
+        i18n.changeLanguage(newLocale);
   };
 
   return (

@@ -123,8 +123,7 @@ const Footer = () => {
                   <div className={styles.fcr__div}>
                     <Copy>
                       <div>
-                        <span className={styles.fc__bold}>N:</span> Pikwe
-                        Estates
+                        <span className={styles.fc__bold}>N:</span> Pikwe Estates
                       </div>
                     </Copy>
                   </div>
@@ -187,7 +186,7 @@ const Footer = () => {
         />
       </div>
     </footer>
-  );
-};
+  )
+}
 
 export default Footer;
